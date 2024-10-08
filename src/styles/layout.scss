@@ -1,0 +1,32 @@
+html, body {
+  min-height: 100vh;
+}
+
+body {
+  font-family: $font-family-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-base;
+  font-size: $font-size-base;
+  background-color: $body-bg;
+  color: $body-color;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  -webkit-text-size-adjust: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  flex: 0 0 auto;
+}
+
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}

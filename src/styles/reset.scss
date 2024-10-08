@@ -1,0 +1,24 @@
+// Box-sizing
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Margin and padding reset (not quite perfect)
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+// Remove list styles
+ul[class], ol[class] {
+  list-style: none;
+}
+
+// Image reset
+img {
+  max-width: 100%;
+  display: block;
+}
