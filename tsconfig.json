@@ -8,6 +8,7 @@
       "DOM",
       "DOM.Iterable"
     ],
+    "types": ["cypress", "node"],
     "module": "ESNext",
     "skipLibCheck": true,
     /* Bundler mode */
@@ -27,6 +28,7 @@
     }
   },
   "include": [
-    "src"
+    "src",
+    "cypress/**/*.ts"
   ],
 }

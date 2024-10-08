@@ -1,6 +1,6 @@
 const ReceiveIndex = () => {
   return (
-    <article>
+    <article data-testid={"receive-index"}>
       <h1>Receive Orders Page</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis,
