@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
+import LogoutForm from "@/components/auth/logout-form.tsx";
 
 export const AuthLayout = () => {
   return (
@@ -16,6 +17,9 @@ export const AuthLayout = () => {
           </li>
           <li>
             <NavLink to={"/contact"}>Contacts</NavLink>
+          </li>
+          <li>
+            <LogoutForm />
           </li>
         </ul>
       </nav>
