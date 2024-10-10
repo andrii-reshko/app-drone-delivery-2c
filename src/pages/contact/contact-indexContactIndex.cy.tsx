@@ -1,4 +1,4 @@
-import ContactIndex from "./contact-index";
+import ContactIndex from "./contact-index.tsx";
 
 describe("<ContactIndex />", () => {
   it("renders", () => {

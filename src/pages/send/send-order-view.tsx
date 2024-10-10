@@ -1,19 +1,20 @@
-import { useParams } from "react-router-dom";
-import { usePageMeta } from "@/hooks/seo.ts";
+import { Link, useParams } from "react-router-dom";
 import { trimUuid } from "@/helpers";
+import PageMeta from "@/components/common/page-meta.tsx";
 
-const OrderView = () => {
+const SendOrderView = () => {
   const { uuid } = useParams();
-
-  usePageMeta({
-    title: `Order ${trimUuid(uuid as string)} - Outgoing`,
-  });
+  const shortUuid = trimUuid(uuid as string);
 
   return (
-    <article>
-      <h1>Order View</h1>
-      <p>Order ID: {trimUuid(uuid as string)}</p>
-    </article>
+    <>
+      <PageMeta title={`${shortUuid} – Outgoing`} />
+      <article>
+        <h1>Order View</h1>
+        <p>Order ID: {shortUuid}</p>
+        <Link to={"/send"}>Back</Link>
+      </article>
+    </>
   );
 };
-export default OrderView;
+export default SendOrderView;

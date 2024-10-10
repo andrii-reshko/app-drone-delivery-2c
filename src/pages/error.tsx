@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import { usePageMeta } from "@/hooks/seo.ts";
+import PageMeta from "@/components/common/page-meta.tsx";
 
 const Error = () => {
-  usePageMeta({ title: "Oups" });
-
   return (
     <main>
+      <PageMeta title={"Oups"} />
       <article
         data-testid={"error"}
         className="container d-flex flex-column flex-fill align-items-center justify-content-center text-muted"

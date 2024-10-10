@@ -1,4 +1,4 @@
-import ReceiveIndex from "./receive-index";
+import ReceiveIndex from "./receive-index.tsx";
 
 describe("<ReceiveIndex />", () => {
   it("renders", () => {

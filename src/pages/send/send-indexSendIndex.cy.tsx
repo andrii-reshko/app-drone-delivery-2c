@@ -1,4 +1,4 @@
-import SendIndex from "./send-index";
+import SendIndex from "./send-index.tsx";
 
 describe("<SendIndex />", () => {
   it("renders", () => {
