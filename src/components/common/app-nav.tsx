@@ -1,5 +1,6 @@
 import AppNavItem, { NavItemProps } from "@/components/common/nav-item.tsx";
 import { IconAccount, IconInbox, IconOutbox } from "@/components/icons";
+import LogoutForm from "@/components/auth/logout-form.tsx";
 
 const menu: NavItemProps[] = [
   { to: "/send", title: "Send", icon: <IconOutbox /> },
@@ -15,7 +16,7 @@ const MainNav = () => {
           <AppNavItem key={i} {...itemProps} />
         ))}
       </nav>
-      {/*<LogoutForm/>*/}
+      <LogoutForm />
     </aside>
   );
 };

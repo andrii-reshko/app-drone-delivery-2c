@@ -1,4 +1,5 @@
 import { useAuth, useLogout } from "@/hooks/auth.ts";
+import { IconLogout } from "@/components/icons";
 
 const LogoutForm = () => {
   const { authenticated } = useAuth();
@@ -13,7 +14,10 @@ const LogoutForm = () => {
         onSubmit={onSubmit}
       >
         <button type={"submit"} className={"nav-item"}>
-          Log out
+          <div className={"nav-icon"}>
+            <IconLogout />
+          </div>
+          <div className={"nav-title"}>Logout</div>
         </button>
       </form>
     )
