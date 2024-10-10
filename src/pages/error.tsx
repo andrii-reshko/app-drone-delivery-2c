@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { usePageMeta } from "@/hooks/seo.ts";
 
 const Error = () => {
+  usePageMeta({ title: "Oups" });
+
   return (
     <main>
       <article

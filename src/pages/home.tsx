@@ -1,4 +1,8 @@
+import { usePageMeta } from "@/hooks/seo.ts";
+
 const Home = () => {
+  usePageMeta({ title: "Home" });
+
   return (
     <article
       data-testid={"home"}

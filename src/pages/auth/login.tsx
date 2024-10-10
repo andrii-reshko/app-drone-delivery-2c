@@ -3,8 +3,11 @@ import { useEffect } from "react";
 import FormButton from "@/components/form/form-button.tsx";
 import { Link, useNavigate } from "react-router-dom";
 import { useLogin } from "@/hooks/auth.ts";
+import { usePageMeta } from "@/hooks/seo.ts";
 
 const Login = () => {
+  usePageMeta({ title: "Sign In" });
+
   const navigate = useNavigate();
 
   const { form, loading, onSubmit, authenticated } = useLogin();

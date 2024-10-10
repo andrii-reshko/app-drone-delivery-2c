@@ -3,8 +3,11 @@ import FormInput from "@/components/form/form-input.tsx";
 import FormButton from "@/components/form/form-button.tsx";
 import { useEffect } from "react";
 import { useRegister } from "@/hooks/auth.ts";
+import { usePageMeta } from "@/hooks/seo.ts";
 
 const Register = () => {
+  usePageMeta({ title: "Sign Up" });
+
   const navigate = useNavigate();
 
   const { form, onSubmit, loading, authenticated } = useRegister();

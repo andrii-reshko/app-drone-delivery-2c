@@ -1,4 +1,8 @@
+import { usePageMeta } from "@/hooks/seo.ts";
+
 const ReceiveIndex = () => {
+  usePageMeta({ title: "Incoming Orders" });
+
   return (
     <article data-testid={"receive-index"}>
       <h1>Receive Orders Page</h1>
