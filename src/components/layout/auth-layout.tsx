@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import AppFooter from "@/components/common/app-footer.tsx";
 import AppNav from "@/components/common/app-nav.tsx";
 
 export const AuthLayout = () => {
@@ -10,7 +9,6 @@ export const AuthLayout = () => {
         <main>
           <Outlet />
         </main>
-        <AppFooter />
       </div>
     </div>
   );

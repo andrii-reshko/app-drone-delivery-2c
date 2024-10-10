@@ -6,6 +6,6 @@
  * @param first
  * @param last
  */
-export const trimUuid = (uuid: string, first: number = 8, last: number = 4) => {
+export const trimUuid = (uuid: string, first: number = 8, last: number = 8) => {
   return `${uuid.substring(0, first)}...${uuid.substring(uuid.length - last)}`;
 };

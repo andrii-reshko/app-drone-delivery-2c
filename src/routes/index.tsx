@@ -46,6 +46,10 @@ const index: RouteObject[] = [
         element: <ContactIndex />,
         children: [
           {
+            path: "create",
+            element: <ContactEdit />,
+          },
+          {
             path: ":uuid",
             element: <ContactEdit />,
           },
@@ -55,6 +59,10 @@ const index: RouteObject[] = [
       {
         path: "send",
         element: <SendIndex />,
+      },
+      {
+        path: "send/create",
+        element: <SendOrderView />,
       },
       {
         path: "send/:uuid",

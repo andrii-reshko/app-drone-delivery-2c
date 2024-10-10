@@ -108,6 +108,7 @@ $directions: (
   margin-left: auto;
   margin-right: auto;
 }
+
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
@@ -116,5 +117,30 @@ $directions: (
 @each $k, $d in $directions {
   .m#{$k}-auto {
     margin-#{$d}: auto;
+  }
+}
+
+// todo refactor to some other file
+.card {
+  display: flex;
+  flex-direction: column;
+
+  & .card-header {
+    flex: 0 1 auto;
+  }
+
+  & .card-body {
+    flex: 1 0 auto;
+    padding: 0.5em;
+  }
+
+  & .card-footer {
+    margin-top: auto;
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5em;
   }
 }

@@ -2,10 +2,14 @@ import { Link, useParams } from "react-router-dom";
 import { trimUuid } from "@/helpers";
 import PageMeta from "@/components/common/page-meta.tsx";
 
-const ContactEdit = () => {
-  const { uuid } = useParams();
+type RouteParams = {
+  uuid?: string;
+};
 
-  const shortUuid = trimUuid(uuid as string);
+const ContactEdit = () => {
+  const { uuid } = useParams<RouteParams>();
+
+  const shortUuid = uuid ? trimUuid(uuid) : "Add";
 
   return (
     <>
