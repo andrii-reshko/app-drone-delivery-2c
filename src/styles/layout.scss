@@ -30,3 +30,91 @@ main {
   flex-direction: column;
   justify-content: flex-start;
 }
+
+footer {
+  flex: 0 0 auto;
+}
+
+.layout-h {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex: 1 0 auto;
+}
+
+.layout-v {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex: 1 0 auto;
+}
+
+// Spacing
+$spacings: (
+        0: 0,
+        1: 0.25em,
+        2: 0.5em,
+        3: 1em,
+        4: 1.5em,
+        5: 3em,
+);
+
+$directions: (
+        s: left,
+        t: top,
+        e: right,
+        b: bottom,
+);
+
+@each $i, $value in $spacings {
+  .p-#{$i} {
+    padding: $value;
+  }
+  .px-#{$i} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  .py-#{$i} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+  @each $key, $attr in $directions {
+    .p#{$key}-#{$i} {
+      padding-#{$attr}: $value;
+    }
+  }
+
+  .m-#{$i} {
+    margin: $value;
+  }
+  .mx-#{$i} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+  .my-#{$i} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+  @each $key, $attr in $directions {
+    .m#{$key}-#{$i} {
+      margin-#{$attr}: $value;
+    }
+  }
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@each $k, $d in $directions {
+  .m#{$k}-auto {
+    margin-#{$d}: auto;
+  }
+}

@@ -1,0 +1,53 @@
+@use "sass:math";
+
+$gutter-half: $gutter * 0.5;
+
+@function calc-column-width($columns, $total: $grid-columns) {
+  @return percentage(math.div($columns, $total));
+}
+
+.container, .container-fluid {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $gutter-half;
+}
+
+.container {
+  @each $breakpoint, $max-width in $container-max-widths {
+    @include media-breakpoint-up($breakpoint) {
+      max-width: $max-width;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -#{$gutter-half};
+
+  & > * {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 $gutter-half;
+  }
+
+  @each $breakpoint, $max-width in $grid-breakpoints {
+    @if ($max-width == 0) {
+      @for $col from 1 through $grid-columns {
+        & .col-#{$col} {
+          width: calc-column-width($col);
+        }
+      }
+    } @else {
+      @include media-breakpoint-up($breakpoint) {
+        @for $col from 1 through $grid-columns {
+          & .col-#{$breakpoint}-#{$col} {
+            width: calc-column-width($col);
+          }
+        }
+      }
+    }
+  }
+}
