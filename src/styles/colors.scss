@@ -1,0 +1,21 @@
+@use "sass:color";
+
+@each $name, $color in $colors {
+  .bg-#{"" + $name} {
+    background-color: $color;
+  }
+
+  .text-#{"" + $name} {
+    color: $color;
+  }
+
+  .btn.btn-#{"" + $name} {
+    background-color: $color;
+    color: map-get($contrasts, $name);
+    border: 2px solid color.mix($color, map-get($contrasts, $name), 50%);
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    &:hover, &:focus {
+      background-color: color.adjust($color, $lightness: -5%);
+    }
+  }
+}

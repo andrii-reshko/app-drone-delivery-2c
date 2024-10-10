@@ -8,7 +8,46 @@ $font-weight-normal: 400;
 $font-weight-bold: 600;
 $line-height-base: 1.6;
 
+$h1-font-size: 2.5rem;
+$h2-font-size: 2rem;
+$h3-font-size: 1.75rem;
+$h4-font-size: 1.5rem;
+$h5-font-size: 1.25rem;
+
 // Colors
 $body-color: #212121;
 $body-bg: #FAFAFA;
 $border-color: #CCC;
+$colors: (
+        primary: #8BC34A,
+        secondary: #607D8B,
+        danger: #FF5252,
+        light: #FAFAFA,
+        dark: #212121,
+        muted: #9E9E9E,
+        white: #FFFFFF,
+);
+$contrasts: (
+        primary: #FFFFFF,
+        secondary: #FFFFFF,
+        danger: #FFFFFF,
+        light: #212121,
+        dark: #FAFAFA,
+        muted: #212121,
+        white: #212121,
+);
+
+// Grid-system
+$grid-columns: 12;
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px
+);
+$container-max-widths: (
+        lg: 960px,
+        xl: 1200px
+);
+$gutter: 1em;

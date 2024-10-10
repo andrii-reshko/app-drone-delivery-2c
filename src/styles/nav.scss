@@ -1,0 +1,46 @@
+$nav-spacing: 0.25em;
+
+aside {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+  background-color: map-get($colors, 'white');
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+
+  nav, .nav-form {
+    display: flex;
+    flex-direction: column;
+    gap: $nav-spacing;
+    padding: $nav-spacing;
+  }
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .75em .5em;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  background-color: map-get($colors, 'light');
+  font-size: .75em;
+  text-transform: uppercase;
+  border-radius: 1em;
+  color: map-get($colors, 'muted');
+  cursor: pointer;
+
+  &:hover, &:focus, &.active {
+    background-color: map-get($colors, 'primary');
+    color: map-get($colors, 'dark');
+    text-decoration: none;
+  }
+
+  .nav-icon {
+    font-size: 2em;
+    line-height: 1;
+  }
+
+  .nav-title {
+    font-size: .75em;
+  }
+}
