@@ -1,27 +1,17 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import AppFooter from "@/components/common/app-footer.tsx";
+import AppNav from "@/components/common/app-nav.tsx";
 
 export const AuthLayout = () => {
   return (
-    <>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to={"/"}>Home</NavLink>
-          </li>
-          <li>
-            <NavLink to={"/send"}>Send</NavLink>
-          </li>
-          <li>
-            <NavLink to={"/receive"}>Receive</NavLink>
-          </li>
-          <li>
-            <NavLink to={"/contact"}>Contacts</NavLink>
-          </li>
-        </ul>
-      </nav>
-      <main>
-        <Outlet />
-      </main>
-    </>
+    <div className="layout-h">
+      <AppNav />
+      <div className="layout-v">
+        <main>
+          <Outlet />
+        </main>
+        <AppFooter />
+      </div>
+    </div>
   );
 };

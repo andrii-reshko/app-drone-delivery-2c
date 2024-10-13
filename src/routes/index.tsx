@@ -4,31 +4,34 @@ import { RouteObject } from "react-router-dom";
 import ContactIndex from "@/pages/contact-index.tsx";
 import SendIndex from "@/pages/send-index.tsx";
 import ReceiveIndex from "@/pages/receive-index.tsx";
-import { AuthLayout } from "@/components/layout/auth-layout.tsx";
+import { AuthRoute, GuestRoute } from "@/routes/components.tsx";
+import Login from "@/pages/auth/login.tsx";
+import Register from "@/pages/auth/register.tsx";
 
 const index: RouteObject[] = [
   {
     path: "/auth",
     errorElement: <Error />,
+    element: <GuestRoute />,
     children: [
       {
         path: "",
-        element: <Error />,
+        element: <Login />,
       },
       {
         path: "login",
-        element: <Error />,
+        element: <Login />,
       },
       {
         path: "register",
-        element: <Error />,
+        element: <Register />,
       },
     ],
   },
   {
     path: "/",
     errorElement: <Error />,
-    element: <AuthLayout />,
+    element: <AuthRoute />,
     children: [
       {
         path: "",

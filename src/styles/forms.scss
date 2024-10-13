@@ -1,0 +1,48 @@
+@use "sass:color";
+
+$input-border-radius: 0.5em;
+$label-padding: 0;
+$input-padding: 1em;
+
+.form-field {
+
+  & label {
+    display: block;
+    padding-left: $label-padding;
+    font-size: 0.825em;
+    line-height: 1;
+    opacity: 0.5;
+  }
+
+  & .form-input-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  & input {
+    width: 100%;
+    padding: $input-padding;
+    border: 1px solid $border-color;
+    border-radius: $input-border-radius;
+    outline: none;
+
+    &:hover, &:focus {
+      border-color: color.adjust($border-color, $lightness: -25%);
+    }
+  }
+
+  & .form-text {
+    padding-left: 0.25em;
+  }
+}
+
+.btn {
+  padding: $input-padding;
+  border-radius: $input-border-radius;
+  line-height: 1em;
+  font-weight: $font-weight-bold;
+  border: 2px solid transparent;
+  cursor: pointer;
+  outline: none;
+}

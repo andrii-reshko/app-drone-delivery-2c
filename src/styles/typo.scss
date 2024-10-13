@@ -1,0 +1,70 @@
+@use "sass:color";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+$heading-color: color.adjust($body-color,  $alpha: -0.2);
+$link-color: color.adjust($body-color, $alpha: -0.2);
+
+// Headings
+h1, .h1 {
+  font-size: $h1-font-size;
+  font-weight: $font-weight-bold;
+  color: $heading-color;
+  text-transform: uppercase;
+}
+h2, .h2 {
+  font-size: $h2-font-size;
+  font-weight: $font-weight-bold;
+  color: $heading-color;
+  text-transform: uppercase;
+}
+h3, .h3 {
+  font-size: $h3-font-size;
+  font-weight: $font-weight-bold;
+  color: $heading-color;
+}
+h4, .h4 {
+  font-size: $h4-font-size;
+  font-weight: $font-weight-bold;
+  color: $heading-color;
+}
+h5, .h5 {
+  font-size: $h5-font-size;
+  font-weight: $font-weight-bold;
+  color: $heading-color;
+}
+
+// Text sizing
+.text-sm {
+  font-size: 0.875em;
+}
+.text-md {
+  font-size: 1em;
+}
+.text-lg {
+  font-size: 1.125em;
+}
+
+// Text alignment
+.text-start {
+  text-align: left;
+}
+.text-end {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+
+// Some decoration
+a {
+  color: $link-color;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+b, .fw-bold {
+  font-weight: $font-weight-bold;
+}
