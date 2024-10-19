@@ -32,18 +32,20 @@ $gutter-half: $gutter * 0.5;
     max-width: 100%;
     padding: 0 $gutter-half;
   }
+}
 
+[class^="col-"] {
   @each $breakpoint, $max-width in $grid-breakpoints {
     @if ($max-width == 0) {
       @for $col from 1 through $grid-columns {
-        & .col-#{$col} {
+        &.col-#{$col} {
           width: calc-column-width($col);
         }
       }
     } @else {
       @include media-breakpoint-up($breakpoint) {
         @for $col from 1 through $grid-columns {
-          & .col-#{$breakpoint}-#{$col} {
+          &.col-#{$breakpoint}-#{$col} {
             width: calc-column-width($col);
           }
         }
