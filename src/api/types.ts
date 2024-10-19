@@ -16,20 +16,27 @@ export type ServerResponse<T> = {
   meta?: object | null;
 };
 
-// Entity responses
-
-export type TokenResponse = {
-  token_type: string;
-  access_token: string;
-  refresh_token: string;
-  expires_in: number;
-  expires_at: string;
+type PagingLink = {
+  url: string | null;
+  label: string;
+  active: boolean;
 };
 
-export type UserResponse = {
-  id: string;
-  name: string;
-  email: string;
-  created_at: string;
-  updated_at: string;
+export type PaginationProps = {
+  path: string;
+  from: number;
+  to: number;
+  total: number;
+  current_page: number;
+  last_page: number;
+  links: PagingLink[];
+  first_page_url: string | null;
+  next_page_url: string | null;
+  prev_page_url: string | null;
+  last_page_url: string | null;
+  per_page: number;
 };
+
+export type PaginatedResponse<T> = {
+  data: T[];
+} & PaginationProps;
