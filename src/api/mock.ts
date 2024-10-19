@@ -1,7 +1,7 @@
 import { AxiosInstance } from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 import { PaginatedResponse } from "@/api/types.ts";
-import { Location, Order, RouteNode } from "@/api/entity-types.ts";
+import { Location, Order, PublicUser, RouteNode } from "@/api/entity-types.ts";
 
 const paginate = <T>(data: T[], page: number): PaginatedResponse<T> => {
   return {
@@ -96,6 +96,21 @@ const mockOrders = (count: number, page: number): Order[] => {
   });
 };
 
+const mockContacts = (count: number, page: number) => {
+  return Array.from({ length: count }, (_, i) => {
+    const n = i + 1 + count * (page - 1);
+    const p = page.toString().padStart(4, "0");
+    const s = n.toString().padStart(12, "0");
+
+    return {
+      uuid: `20000000-0000-0000-${p}-${s}`,
+      name: `Contact ${n}`,
+      email: `example-${n}@example.com`,
+      location: mockLocation(`Contact location ${n}`),
+    } as PublicUser;
+  });
+};
+
 const mockJwt = (subUuid: string) => {
   return btoa(
     JSON.stringify({
@@ -172,6 +187,35 @@ const mockServer = (axios: AxiosInstance) => {
         {
           data: {
             ...order,
+            uuid: uuid,
+          },
+        },
+      ];
+    });
+
+  // Mock contacts
+  mock
+    .onGet("/contact")
+    .withDelayInMs(delay)
+    .reply((config) => {
+      const page = parseInt(config.params.page) || 1;
+      const limit = parseInt(config.params.limit) || 10;
+      const contacts = mockContacts(limit, page);
+      return [200, paginate(contacts, page)];
+    });
+
+  mock
+    .onGet(new RegExp(`/contact/*`))
+    .withDelayInMs(delay)
+    .reply((config) => {
+      const uuid = config.url?.split("/").pop();
+      const contacts = mockContacts(1, 1);
+      const contact = contacts[0];
+      return [
+        200,
+        {
+          data: {
+            ...contact,
             uuid: uuid,
           },
         },
