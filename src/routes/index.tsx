@@ -1,6 +1,6 @@
 import Error from "@/pages/error.tsx";
 import Home from "@/pages/home.tsx";
-import { RouteObject } from "react-router-dom";
+import { Outlet, RouteObject } from "react-router-dom";
 import ContactIndex from "@/pages/contact/contact-index.tsx";
 import SendIndex from "@/pages/send/send-index.tsx";
 import ReceiveIndex from "@/pages/receive/receive-index.tsx";
@@ -58,24 +58,36 @@ const index: RouteObject[] = [
       // Send
       {
         path: "send",
-        element: <SendIndex />,
-      },
-      {
-        path: "send/create",
-        element: <SendOrderView />,
-      },
-      {
-        path: "send/:uuid",
-        element: <SendOrderView />,
+        element: <Outlet />,
+        children: [
+          {
+            path: "",
+            element: <SendIndex />,
+          },
+          {
+            path: "create",
+            element: <SendOrderView />,
+          },
+          {
+            path: ":uuid",
+            element: <SendOrderView />,
+          },
+        ],
       },
       // Receive
       {
         path: "receive",
-        element: <ReceiveIndex />,
-      },
-      {
-        path: "receive/:uuid",
-        element: <ReceiveOrderView />,
+        element: <Outlet />,
+        children: [
+          {
+            path: "",
+            element: <ReceiveIndex />,
+          },
+          {
+            path: ":uuid",
+            element: <ReceiveOrderView />,
+          },
+        ],
       },
     ],
   },
