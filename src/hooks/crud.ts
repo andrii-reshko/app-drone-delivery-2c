@@ -89,9 +89,10 @@ export const useFetchInstance = <T>(callback: SingleCallback<T>) => {
 
 export const useCreateInstance = <T>(callback: () => T) => {
   const [instance, setInstance] = useState<T | undefined>(undefined);
+  const createInstance = useCallback(() => setInstance(callback()), [callback]);
 
-  useCallback(() => setInstance(callback()), [callback]);
   return {
+    createInstance,
     instance,
   };
 };
