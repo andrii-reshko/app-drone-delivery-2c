@@ -1,0 +1,6 @@
+{
+  "*.{js,jsx,ts,tsx}": [
+    "npx eslint --fix --max-warnings 0 ./src"
+  ],
+  "*.{js,jsx,ts,tsx,css,mjs}": ["prettier --write"]
+}

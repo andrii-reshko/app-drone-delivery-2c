@@ -1,9 +1,14 @@
-import React from 'react'
-import Error from './error'
+import Error from "@/pages/error";
+import { MemoryRouter } from "react-router-dom";
 
-describe('<Error />', () => {
-  it('renders', () => {
+describe("<Error />", () => {
+  it("renders", () => {
     // see: https://on.cypress.io/mounting-react
-    cy.mount(<Error />)
-  })
-})
+    cy.mount(
+      <MemoryRouter>
+        <Error />
+      </MemoryRouter>,
+    );
+    cy.dataCy("error").should("exist");
+  });
+});
