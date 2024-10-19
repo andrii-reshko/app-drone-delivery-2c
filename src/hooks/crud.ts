@@ -19,7 +19,7 @@ type SimplePagination = {
   pages: number;
 };
 
-export const useFetchItems = <T, Q>(
+export const useFetchListing = <T, Q>(
   callback: IndexCallback<T, Q>,
   initialQuery: Q,
 ) => {
@@ -84,6 +84,15 @@ export const useFetchInstance = <T>(callback: SingleCallback<T>) => {
     instance,
     loading,
     fetchItem,
+  };
+};
+
+export const useCreateInstance = <T>(callback: () => T) => {
+  const [instance, setInstance] = useState<T | undefined>(undefined);
+
+  useCallback(() => setInstance(callback()), [callback]);
+  return {
+    instance,
   };
 };
 
