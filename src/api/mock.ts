@@ -41,7 +41,7 @@ const mockLocation = (name: string): Location => {
 
 const mockOrders = (count: number, page: number): Order[] => {
   return Array.from({ length: count }, (_, i) => {
-    const n = i + 1;
+    const n = i + 1 + count * (page - 1);
     const p = page.toString().padStart(4, "0");
     const s = n.toString().padStart(12, "0");
 
@@ -67,7 +67,7 @@ const mockOrders = (count: number, page: number): Order[] => {
       receiver_uuid: `22000000-0000-0000-0000-00000000000${n}`,
       from: mockLocation(`From address ${n}`),
       to: mockLocation(`To address ${n}`),
-      description: `Order ${i}`,
+      description: `Order ${n}`,
       status: "pending",
       sender: {
         uuid: `21000000-0000-0000-0000-00000000000${i}`,
