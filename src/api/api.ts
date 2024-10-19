@@ -1,6 +1,7 @@
 import { client } from "./client.ts";
 import { PaginatedResponse, ServerResponse } from "./types.ts";
 import { Order, PublicUser, TokenResponse, User } from "@/api/entity-types.ts";
+import { ContactQuery, OrderQuery } from "@/api/queries.ts";
 
 export default {
   auth: {
@@ -12,7 +13,7 @@ export default {
     me: () => client.get<ServerResponse<User>>(`/auth/me`),
   },
   contact: {
-    index: (params?: object) => {
+    index: (params?: ContactQuery) => {
       return client.get<PaginatedResponse<PublicUser>>(`/contact`, params);
     },
     show: (uuid: string) => {
@@ -29,7 +30,7 @@ export default {
     },
   },
   order: {
-    index: (params?: object) => {
+    index: (params?: OrderQuery) => {
       return client.get<PaginatedResponse<Order>>(`/order`, params);
     },
     show: (uuid: string) => {

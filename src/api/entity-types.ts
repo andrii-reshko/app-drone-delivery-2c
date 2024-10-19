@@ -72,3 +72,27 @@ export interface Order {
   vehicle?: Vehicle | null;
   route?: RouteNode[];
 }
+
+export type ContactFormInstance = {
+  name: string;
+  email: string;
+};
+
+export type OrderFormLocation = {
+  place_id?: string;
+  address: string;
+  lat: number;
+  lon: number;
+};
+
+export type OrderFormContractor = {
+  uuid: string;
+  location: OrderFormLocation;
+};
+
+export type OrderFormInstance = {
+  sender: OrderFormContractor;
+  receiver: OrderFormContractor;
+  description: string;
+  rows: OrderRow[];
+};
